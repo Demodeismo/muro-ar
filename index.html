@@ -1,46 +1,40 @@
-<!doctype html>
-<html lang="it">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <title>MindAR</title>
 
-    <!-- QUESTO È IL PEZZO CHE MANCAVA -->
-    <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   maximum-scale=1.0,
-                   user-scalable=no">
-
-    <title>Muro AR</title>
-
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <!-- MindAR + A-Frame -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   </head>
 
   <body style="margin:0; overflow:hidden;">
-
     <a-scene
-      embedded
+      mindar-image="imageTargetSrc: targets.mind;"
       vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-    >
+      device-orientation-permission-ui="enabled: false"
+      embedded>
 
-      <!-- MARKER HIRO -->
-      <a-marker preset="hiro">
+      <!-- ASSETS -->
+      <a-assets>
+        <img id="quadro" src="quadro.jpg">
+      </a-assets>
 
-        <!-- IMMAGINE (dimensioni normali) -->
-        <a-image
-          src="quadro.jpg"
-          width="0.35"
-          height="0.5"
+      <!-- CAMERA -->
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <!-- TARGET -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane
+          src="#quadro"
           position="0 0 0"
-          rotation="-90 0 0">
-        </a-image>
-
-      </a-marker>
-
-      <a-entity camera></a-entity>
+          height="1.5"
+          width="1"
+          rotation="0 0 0">
+        </a-plane>
+      </a-entity>
 
     </a-scene>
-
   </body>
 </html>
