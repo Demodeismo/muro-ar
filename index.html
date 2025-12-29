@@ -1,46 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Muro AR</title>
+  <head>
+    <meta charset="utf-8">
+    <title>AR Quadro</title>
 
-  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
-</head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.1/aframe/build/aframe-ar.js"></script>
 
-<body style="margin:0; overflow:hidden;">
-  <a-scene
-    embedded
-    arjs="sourceType: webcam;
-          debugUIEnabled: false;
-          smoothing: true;
-          smoothingCount: 10;
-          smoothingTolerance: 0.01;
-          smoothingThreshold: 2;"
-    vr-mode-ui="enabled:false"
-  >
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
 
-    <a-marker
-      type="pattern"
-      url="mandalacode.patt"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance="0.01"
-      smoothThreshold="2"
+  <body>
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;"
     >
 
-      <!-- QUADRO STABILE -->
-      <a-plane
-        src="quadro.jpg"
-        width="4"
-        height="3"
-        position="0 1.4 -3.5"
-        rotation="-90 0 0"
-      ></a-plane>
+      <!-- MARKER PERSONALIZZATO -->
+      <a-marker
+        type="pattern"
+        url="prova.patt"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
+      >
 
-    </a-marker>
+        <!-- IMMAGINE SUL MURO -->
+        <a-image
+          src="quadro.jpg"
+          position="0 0 0"
+          rotation="-90 0 0"
+          width="4"
+          height="4"
+        ></a-image>
 
-    <a-entity camera></a-entity>
-  </a-scene>
-</body>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+
+    </a-scene>
+  </body>
 </html>
