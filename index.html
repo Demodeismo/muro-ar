@@ -13,13 +13,20 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
+
+      <!-- PRECARICO IMMAGINE -->
+      <a-assets>
+        <img id="quadro" src="./quadro.jpg">
+      </a-assets>
+
       <!-- MARKER HIRO -->
       <a-marker preset="hiro">
         <a-image
-          src="quadro.jpg"
+          src="#quadro"
           width="1"
           height="1"
           position="0 0.5 0"
+          rotation="-90 0 0"
         ></a-image>
       </a-marker>
 
