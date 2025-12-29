@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Muro AR</title>
@@ -15,23 +15,18 @@
     
     <a-scene
       embedded
-      vr-mode-ui="enabled: false"
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
 
       <!-- MARKER PERSONALIZZATO -->
-      <a-marker
-        type="pattern"
-        url="mandalacode.patt"
-      >
+      <a-marker type="pattern" url="mandalacode.patt">
 
-        <!-- IMMAGINE SUL MURO -->
+        <!-- IMMAGINE GRANDE -->
         <a-image
           src="quadro.jpg"
-          position="0 0.5 0"
+          position="0 1 0"
           rotation="-90 0 0"
-          width="1"
-          height="1"
+          scale="3 3 3"
         ></a-image>
 
       </a-marker>
