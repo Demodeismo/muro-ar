@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Muro AR</title>
+
+    <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+    <!-- AR.js -->
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
 
@@ -12,12 +16,19 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
+
       <!-- MARKER -->
       <a-marker preset="hiro">
-        <a-box
-          position="0 0.5 0"
-          material="color: red;"
-        ></a-box>
+
+        <!-- IMMAGINE SUL MURO -->
+        <a-image
+          src="quadro.jpg"
+          width="1.2"
+          height="0.8"
+          position="0 0.6 0"
+          rotation="-90 0 0"
+        ></a-image>
+
       </a-marker>
 
       <a-entity camera></a-entity>
