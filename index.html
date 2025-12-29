@@ -2,39 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>MindAR</title>
+    <title>AR</title>
 
-    <!-- MindAR + A-Frame -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   </head>
 
   <body style="margin:0; overflow:hidden;">
     <a-scene
-      mindar-image="imageTargetSrc: ./targets1.mind;"
+      embedded
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
-      embedded>
+      mindar-image="imageTargetSrc: ./targets1.mind;">
 
-      <!-- ASSETS -->
       <a-assets>
         <img id="quadro" src="./quadro.jpg">
       </a-assets>
 
-      <!-- CAMERA -->
       <a-camera
         position="0 0 0"
         look-controls="enabled: false">
       </a-camera>
 
-      <!-- TARGET MINDAR -->
       <a-entity mindar-image-target="targetIndex: 0">
         <a-plane
           src="#quadro"
           position="0 0 0"
           height="1.5"
-          width="1"
-          rotation="0 0 0">
+          width="1">
         </a-plane>
       </a-entity>
 
